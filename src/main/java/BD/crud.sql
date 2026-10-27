@@ -1,0 +1,7 @@
+USE dam2;
+
+CREATE TABLE professor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    cognoms VARCHAR(100) NOT NULL
+);
