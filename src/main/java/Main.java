@@ -1,3 +1,8 @@
+import Controller.ProfessorController;
+import DAO.ProfessorDAO;
+import DAOImpl.ProfessorDAOImpl;
+import View.ProfessorView;
+
 import java.util.Scanner;
 
 public class Main {
@@ -46,6 +51,12 @@ public class Main {
 
             switch (opcio) {
                 case 1:
+                    if (gestio.equals("professors")) {
+                        ProfessorDAO professorDAO = new ProfessorDAOImpl();
+                        ProfessorController professorController = new ProfessorController(professorDAO);
+                        ProfessorView professorView = new ProfessorView(professorController);
+                        professorView.demanaProfessor();
+                    }
                     // Aquí anirà la crida al controlador (alta)
                     System.out.println("Alta de " + gestio);
                     break;
