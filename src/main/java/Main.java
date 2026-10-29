@@ -39,6 +39,13 @@ public class Main {
     public static void menuGestio(Scanner scanner, String gestio) {
         int opcio = 0;
 
+
+
+        ProfessorDAO professorDAO = new ProfessorDAOImpl();
+        ProfessorController professorController = new ProfessorController(professorDAO);
+        ProfessorView professorView = new ProfessorView(professorController);
+
+
         while (opcio != 5) {
             System.out.println("MENÚ " + gestio);
             System.out.println("1 - Alta");
@@ -52,9 +59,6 @@ public class Main {
             switch (opcio) {
                 case 1:
                     if (gestio.equals("professors")) {
-                        ProfessorDAO professorDAO = new ProfessorDAOImpl();
-                        ProfessorController professorController = new ProfessorController(professorDAO);
-                        ProfessorView professorView = new ProfessorView(professorController);
                         professorView.demanaProfessor();
                     }
                     // Aquí anirà la crida al controlador (alta)
