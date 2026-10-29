@@ -14,7 +14,9 @@ public class ProfessorController {
         professorDAO.addDam2(professor);
     }
 
-
+    public void eliminarProfessor(Professor professor) {
+        professorDAO.deleteDam2(professor);
+    }
 
 
 

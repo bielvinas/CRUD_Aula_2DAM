@@ -23,4 +23,21 @@ public class ProfessorDAOImpl implements ProfessorDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void deleteDam2(Professor professor) {
+        try (Connection conn = Utils.obtenirConnexio();
+             PreparedStatement stmt = conn.prepareStatement("DELETE FROM professor WHERE id = ?")) {
+
+            stmt.setInt(1, professor.getId());
+            int files = stmt.executeUpdate();
+
+            if (files == 0) {
+                System.out.println("No s'ha trobat cap professor amb aquest id.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

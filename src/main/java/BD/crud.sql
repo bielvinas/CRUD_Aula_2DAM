@@ -5,3 +5,10 @@ CREATE TABLE professor (
     nom VARCHAR(50) NOT NULL,
     cognoms VARCHAR(100) NOT NULL
 );
+
+INSERT INTO professor (nom, cognoms) VALUES ('David', 'Lozano');
+INSERT INTO professor (nom, cognoms) VALUES ('Jep', 'Massanes');
+INSERT INTO professor (nom, cognoms) VALUES ('Joan', 'Coll');
+
+
+select * from professor;

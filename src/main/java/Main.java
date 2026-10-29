@@ -39,8 +39,6 @@ public class Main {
     public static void menuGestio(Scanner scanner, String gestio) {
         int opcio = 0;
 
-
-
         ProfessorDAO professorDAO = new ProfessorDAOImpl();
         ProfessorController professorController = new ProfessorController(professorDAO);
         ProfessorView professorView = new ProfessorView(professorController);
