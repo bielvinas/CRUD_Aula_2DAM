@@ -25,10 +25,23 @@ public class ProfessorView {
         controlador.altaProfessor(professor);
     }
 
-    public void demanaIdProfessor() {
+    public void demanaIdProfessorEliminar() {
         System.out.print("Introdueix el id del professor: ");
         int id = Integer.parseInt(scanner.nextLine());
 
         controlador.eliminarProfessor(id);
+    }
+
+    public void demanaIdProfessorActualitzar() {
+        System.out.print("Introdueix el id del professor: ");
+        int id = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Introdueix el nom del professor actualitzat: ");
+        String nom = scanner.nextLine();
+
+        System.out.print("Introdueix els cognoms del professor actualitzat: ");
+        String cognom = scanner.nextLine();
+
+        controlador.actualitzarProfessor(id,nom,cognom);
     }
 }

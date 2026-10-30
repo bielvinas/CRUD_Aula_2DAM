@@ -18,6 +18,8 @@ public class ProfessorController {
         professorDAO.deleteDam2(id);
     }
 
-
+    public void actualitzarProfessor(int id, String nom, String cognom) {
+        professorDAO.updateDam2(id, nom, cognom);
+    }
 
 }

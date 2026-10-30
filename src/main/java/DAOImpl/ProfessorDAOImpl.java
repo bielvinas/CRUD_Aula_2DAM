@@ -40,4 +40,26 @@ public class ProfessorDAOImpl implements ProfessorDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void updateDam2(int id, String nom, String cognoms) {
+        String sql = "UPDATE professor SET nom = ?, cognoms = ? WHERE id = ?";
+
+        try (Connection conn = Utils.obtenirConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nom);
+            stmt.setString(2, cognoms);
+            stmt.setInt(3, id);
+
+            int files = stmt.executeUpdate();
+
+            if (files == 0) {
+                System.out.println("No s'ha trobat cap professor amb aquest id.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
