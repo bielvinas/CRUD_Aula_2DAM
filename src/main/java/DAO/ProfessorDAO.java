@@ -1,7 +1,6 @@
 package DAO;
 
 import Model.Professor;
-
 import java.util.List;
 
 public interface ProfessorDAO {

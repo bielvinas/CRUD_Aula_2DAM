@@ -3,7 +3,6 @@ package DAOImpl;
 import DAO.ProfessorDAO;
 import Model.Professor;
 import Utils.Utils;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
