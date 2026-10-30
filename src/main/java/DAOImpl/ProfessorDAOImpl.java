@@ -25,11 +25,11 @@ public class ProfessorDAOImpl implements ProfessorDAO {
     }
 
     @Override
-    public void deleteDam2(Professor professor) {
+    public void deleteDam2(int id) {
         try (Connection conn = Utils.obtenirConnexio();
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM professor WHERE id = ?")) {
 
-            stmt.setInt(1, professor.getId());
+            stmt.setInt(1, id);
             int files = stmt.executeUpdate();
 
             if (files == 0) {

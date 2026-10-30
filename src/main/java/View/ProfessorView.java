@@ -24,4 +24,11 @@ public class ProfessorView {
         Professor professor = new Professor(nom, cognom);
         controlador.altaProfessor(professor);
     }
+
+    public void demanaIdProfessor() {
+        System.out.print("Introdueix el id del professor: ");
+        int id = Integer.parseInt(scanner.nextLine());
+
+        controlador.eliminarProfessor(id);
+    }
 }

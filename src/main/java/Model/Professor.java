@@ -7,8 +7,8 @@ public class Professor {
     private String cognom;
 
 
-    public Professor(int id, String nom, String cognom) {
-        this.id = id;
+    public Professor(String nom, String cognom) {
+        this.id = 0;
         this.nom = nom;
         this.cognom = cognom;
     }
