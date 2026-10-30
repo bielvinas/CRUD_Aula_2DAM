@@ -6,7 +6,10 @@ import Utils.Utils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfessorDAOImpl implements ProfessorDAO {
 
@@ -62,4 +65,27 @@ public class ProfessorDAOImpl implements ProfessorDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Professor> readDam2() {
+        List<Professor> professors = new ArrayList<>();
+        String sql = "SELECT * FROM professor";
+
+        try (Connection conn = Utils.obtenirConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Professor p = new Professor(rs.getString("nom"), rs.getString("cognoms"));
+                p.setId(rs.getInt("id"));
+                professors.add(p);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return professors;
+    }
+
 }

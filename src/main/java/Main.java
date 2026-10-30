@@ -70,12 +70,14 @@ public class Main {
                 case 3:
                     System.out.println("Actualitzar " + gestio);
                     if (gestio.equals("professors")) {
+                        professorView.llistarTotsProfessors();
                         professorView.demanaIdProfessorActualitzar();
                     }
                     break;
                 case 4:
                     System.out.println("Eliminar " + gestio);
                     if (gestio.equals("professors")) {
+                        professorView.llistarTotsProfessors();
                         professorView.demanaIdProfessorEliminar();
                     }
                     break;

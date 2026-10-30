@@ -3,6 +3,8 @@ package Controller;
 import DAO.ProfessorDAO;
 import Model.Professor;
 
+import java.util.List;
+
 public class ProfessorController {
     private final ProfessorDAO professorDAO;
 
@@ -20,6 +22,10 @@ public class ProfessorController {
 
     public void actualitzarProfessor(int id, String nom, String cognom) {
         professorDAO.updateDam2(id, nom, cognom);
+    }
+
+    public List<Professor> llistaProfessor() {
+        return professorDAO.readDam2();
     }
 
 }

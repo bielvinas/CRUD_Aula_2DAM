@@ -3,6 +3,7 @@ package View;
 import Controller.ProfessorController;
 import Model.Professor;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ProfessorView {
@@ -43,5 +44,20 @@ public class ProfessorView {
         String cognom = scanner.nextLine();
 
         controlador.actualitzarProfessor(id,nom,cognom);
+    }
+
+    public void llistarTotsProfessors() {
+        List<Professor> llistaProfessors = controlador.llistaProfessor();
+        int id = 0;
+        String nom = "";
+        String cognom = "";
+
+        for (Professor professor : llistaProfessors) {
+            id = professor.getId();
+            nom = professor.getNom();
+            cognom = professor.getCognom();
+            System.out.println("  " + id + ".  " + nom + " " + cognom);
+        }
+
     }
 }
