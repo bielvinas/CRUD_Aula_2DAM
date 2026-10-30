@@ -56,23 +56,28 @@ public class Main {
 
             switch (opcio) {
                 case 1:
+                    System.out.println("Alta de " + gestio);
                     if (gestio.equals("professors")) {
                         professorView.demanaProfessor();
                     }
-                    // Aquí anirà la crida al controlador (alta)
-                    System.out.println("Alta de " + gestio);
                     break;
                 case 2:
-                    // Aquí anirà la crida al controlador (llistar)
+                    if (gestio.equals("professors")) {
+                        professorView.llistarTotsProfessors();
+                    }
                     System.out.println("Llistar " + gestio);
                     break;
                 case 3:
-                    // Aquí anirà la crida al controlador (actualitzar)
                     System.out.println("Actualitzar " + gestio);
+                    if (gestio.equals("professors")) {
+                        professorView.demanaIdProfessorActualitzar();
+                    }
                     break;
                 case 4:
-                    // Aquí anirà la crida al controlador (eliminar)
                     System.out.println("Eliminar " + gestio);
+                    if (gestio.equals("professors")) {
+                        professorView.demanaIdProfessorEliminar();
+                    }
                     break;
                 case 5:
                     break;
