@@ -13,7 +13,7 @@ public class ModulProfessionalDAOImpl implements ModulProfessionalDAO {
 
     @Override
     public void addDam2(ModulProfessional modul) {
-        String sql = "INSERT INTO ModulsProfessionals (nom, id_professor) VALUES (?, ?)";
+        String sql = "INSERT INTO ModulProfessional (nom, id_professor) VALUES (?, ?)";
 
         try (Connection conn = Utils.obtenirConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -29,7 +29,7 @@ public class ModulProfessionalDAOImpl implements ModulProfessionalDAO {
 
     @Override
     public void deleteDam2(int id) {
-        String sql = "DELETE FROM ModulsProfessionals WHERE id = ?";
+        String sql = "DELETE FROM ModulProfessional WHERE id = ?";
 
         try (Connection conn = Utils.obtenirConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -48,7 +48,7 @@ public class ModulProfessionalDAOImpl implements ModulProfessionalDAO {
 
     @Override
     public void updateDam2(int id, String nom, int idProfessor) {
-        String sql = "UPDATE ModulsProfessionals SET nom = ?, id_professor = ? WHERE id = ?";
+        String sql = "UPDATE ModulProfessional SET nom = ?, id_professor = ? WHERE id = ?";
 
         try (Connection conn = Utils.obtenirConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -74,7 +74,7 @@ public class ModulProfessionalDAOImpl implements ModulProfessionalDAO {
 
         // JOIN per agafar també el nom del professor
         String sql = "SELECT m.id, m.nom, m.id_professor, p.nom AS nom_professor "
-                + "FROM ModulsProfessionals m "
+                + "FROM ModulProfessional m "
                 + "JOIN professor p ON m.id_professor = p.id";
 
         try (Connection conn = Utils.obtenirConnexio();

@@ -1,6 +1,10 @@
+import Controller.ModulProfessionalController;
 import Controller.ProfessorController;
+import DAO.ModulProfessionalDAO;
 import DAO.ProfessorDAO;
+import DAOImpl.ModulProfessionalDAOImpl;
 import DAOImpl.ProfessorDAOImpl;
+import View.ModulProfessionalView;
 import View.ProfessorView;
 
 import java.util.Scanner;
@@ -17,7 +21,14 @@ public class Main {
             System.out.println("2 - Gestionar mòduls professionals");
             System.out.println("3 - Sortir");
             System.out.print("Escull una opció: ");
-            opcio = Integer.parseInt(scanner.nextLine());
+            try {
+                opcio = Integer.parseInt(scanner.nextLine());
+                if (opcio < 1 || opcio > 3) {
+                    System.err.println("Error. Has d'entrar números de l'1 al 3.\n");
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Error. Has d'entrar un número vàlid.\n");
+            }
 
             switch (opcio) {
                 case 1:
@@ -29,8 +40,6 @@ public class Main {
                 case 3:
                     System.out.println("Adéu!");
                     break;
-                default:
-                    System.out.println("Opció no vàlida");
             }
         }
     }
@@ -43,6 +52,9 @@ public class Main {
         ProfessorController professorController = new ProfessorController(professorDAO);
         ProfessorView professorView = new ProfessorView(professorController);
 
+        ModulProfessionalDAO modulProfessionalDAO = new ModulProfessionalDAOImpl();
+        ModulProfessionalController modulProfessionalController = new ModulProfessionalController(modulProfessionalDAO);
+        ModulProfessionalView modulProfessionalView = new ModulProfessionalView(modulProfessionalController);
 
         while (opcio != 5) {
             System.out.println("MENÚ " + gestio);
@@ -52,7 +64,14 @@ public class Main {
             System.out.println("4 - Eliminar");
             System.out.println("5 - Tornar al menú");
             System.out.print("Escull una opció: ");
-            opcio = Integer.parseInt(scanner.nextLine());
+            try {
+                opcio = Integer.parseInt(scanner.nextLine());
+                if (opcio < 1 || opcio > 5) {
+                    System.err.println("Error. Has d'entrar números de l'1 al 5.\n");
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Error. Has d'entrar un número vàlid.\n");
+            }
 
             switch (opcio) {
                 case 1:
@@ -60,10 +79,16 @@ public class Main {
                     if (gestio.equals("professors")) {
                         professorView.demanaProfessor();
                     }
+                    else if (gestio.equals("mòduls professionals")) {
+                        modulProfessionalView.demanaModulProfessional();
+                    }
                     break;
                 case 2:
                     if (gestio.equals("professors")) {
                         professorView.llistarTotsProfessors();
+                    }
+                    else if (gestio.equals("mòduls professionals")) {
+                        modulProfessionalView.llistarTotsModulsProfessionals();
                     }
                     System.out.println("Llistar " + gestio);
                     break;
@@ -73,6 +98,10 @@ public class Main {
                         professorView.llistarTotsProfessors();
                         professorView.demanaIdProfessorActualitzar();
                     }
+                    else if (gestio.equals("mòduls professionals")) {
+                        modulProfessionalView.llistarTotsModulsProfessionals();
+                        modulProfessionalView.demanaIdModulProfessionalActualitzar();
+                    }
                     break;
                 case 4:
                     System.out.println("Eliminar " + gestio);
@@ -80,11 +109,13 @@ public class Main {
                         professorView.llistarTotsProfessors();
                         professorView.demanaIdProfessorEliminar();
                     }
+                    else if (gestio.equals("mòduls professionals")) {
+                        modulProfessionalView.llistarTotsModulsProfessionals();
+                        modulProfessionalView.demanaIdModulProfessionalEliminar();
+                    }
                     break;
                 case 5:
                     break;
-                default:
-                    System.out.println("Opció no vàlida");
             }
         }
     }
